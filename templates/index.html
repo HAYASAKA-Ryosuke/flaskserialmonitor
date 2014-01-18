@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<title>Terminalapp</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+if(!!window.EventSource) {
+	var source = new EventSource('/');
+	source.onmessage = function(e){
+		var foo = e.data.split(',')
+		$("#data .first").text(foo[0]);
+		$("#data .second").text(foo[1]);
+		$("#data .third").text(foo[2]);
+  }
+}
+</script>
+<div id="data">
+  <div class="first"></div>
+  <div class="second"></div>
+  <div class="third"></div>
